@@ -63,6 +63,15 @@ public class User {
 
 
 
+	public User(User user) {
+		this.userid = user.userid;
+		this.username = user.username;
+		this.password = user.password;
+		this.roles = user.roles;
+	}
+
+
+
 	public long getUserid() {
 		return userid;
 	}

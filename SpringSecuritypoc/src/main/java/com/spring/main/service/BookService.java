@@ -17,9 +17,10 @@ public class BookService {
 	@Autowired
 	private BookRepo br;
 	
-	List<Book> ls=new ArrayList<Book>();;
+	List<Book> ls=new ArrayList<Book>();
 	
 	public List<Book> getBook(){
+		ls.clear();
 		for(Book b:br.findAll())
 		{
 			ls.add(b);

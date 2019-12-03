@@ -12,8 +12,7 @@
 <div style="text-align:center">
 <h1>Main Menu</h1>
 <hr>
-<spring:url value="/library/" var="contextPath" htmlEscape="true" />
-<h2><a href="${pageContext.request.contextPath}/book">ListBook </a></h2>
+<h2><a href="${pageContext.request.contextPath}/book">ListBooks</a></h2>
 <br>
 <h2><a href="${pageContext.request.contextPath}/delete">Delete Book</a></h2>
 <br>
