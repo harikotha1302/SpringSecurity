@@ -35,7 +35,7 @@ public class BookService {
 	
 	public Book bookbyid(long id)
 	{
-		Optional<Book> book=br.findById(id);
+		Optional<Book> book=br.findByBookid(id);
 		return book.isPresent()?book.get():null;
 	}
 	
@@ -46,10 +46,10 @@ public class BookService {
 		
 	}
 	
-	public List<User> bookByuser(Long id)
+	public List<User> userbybook(Long id)
 	{
 		ls.clear();
-		Optional<Book> book=br.findById(id);
+		Optional<Book> book=br.findByBookid(id);
 		List<User> lu=new ArrayList<>();
 		lu=book.get().getUser();
 		return lu;

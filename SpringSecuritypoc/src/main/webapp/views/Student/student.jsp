@@ -13,7 +13,7 @@
 <hr>
 <h2><a href="${pageContext.request.contextPath}/student/searchbook">ListBooks</a></h2>
 <br>
-<h2><a href="${pageContext.request.contextPath}/student/viewbooks">View assigned books</a></h2>
+<h2><a href="${pageContext.request.contextPath}/student/viewbook">View assigned books</a></h2>
 <br>
  <a href="<c:url value="/logout" />">Logout</a>
 </div>

@@ -113,7 +113,7 @@ public class BookController {
 	public ModelAndView users(@RequestParam("bookid") long id)
 	{
 		List<User> u=new ArrayList<>();
-		u=bs.bookByuser(id);
+		u=bs.userbybook(id);
 		return new ModelAndView("Librarian/viewuser","user",u);
 	}
 	

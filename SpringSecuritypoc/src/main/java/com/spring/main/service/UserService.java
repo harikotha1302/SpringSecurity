@@ -35,7 +35,7 @@ public class UserService{
 	{
 		List<Book> b=new ArrayList<Book>();
 		User u=new User();
-		u=ur.findByUserid(id);
+		u=ur.findByUserid(id).get();
 		b=u.getBook();
 		return b;
 	}
@@ -44,6 +44,10 @@ public class UserService{
 	{
 		return ur.findByUsername(username);
 		
+	}
+	
+	public Optional<User> findbyuserid(Long id) {
+		return ur.findByUserid(id);
 	}
 	
 }

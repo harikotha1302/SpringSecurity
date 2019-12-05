@@ -17,37 +17,50 @@
 	<option value="subject">Search By Subject</option>
 	</select>&nbsp;&nbsp;
 	<input type="text" name="searchvalue" required="required" />
-	
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	<button>Search</button>
 
 </form>
 </div>
-
+<form action="viewbookassigned" method="post" >
 <table border="1" align="center">
 <tr>
 	<th>Book_Id</th>
 	<th>Book_name</th>
 	<th>Subject</th>
 	<th>Copies</th>
+	<th>AssignStatus</th>
 </tr>
 <tr>
-<c:if test="${empty books}">
+<c:if test="${empty userbook}">
 	<td colspan="11" align="center">No record found to display.</td>
 </c:if></tr>
-<c:forEach var="book" items="${books}">
+<c:forEach var="userbook" items="${userbook}">
 	<tr>
-	<td>${book.bookid}</td>
-	<td>${book.bookname}</td>
-	<td>${book.subject}</td>
-	<td>${book.copies}</td>
-	<td><a href="${pageContext.request.contextPath}/library/viewuser?bookid=${book.bookid}">Allotted Student List</a></td>
+	<td>${userbook.b.bookid}</td>
+	<td>${userbook.b.bookname}</td>
+	<td>${userbook.b.subject}</td>
+	<td>${userbook.b.copies}</td>
+	
+	<c:if test="${userbook.b.copies==0 }">
+	<td>No books available for booking</td>
+	</c:if>
+	<c:if test="${userbook.isAssigned }">
+	<td>book is already assigned to you</td>
+	</c:if>
+	<td>
+		<input type="checkbox" name="assign" value="${userbook.b.bookid}">AssignBook
+	</td>
 	</tr>
 	</c:forEach>
 </table>
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+<button>submit</button>
+</form>
 <br>
 <div align="center" >
-<a href="${pageContext.request.contextPath}/library/addbook">Add Book</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="${pageContext.request.contextPath}/library">Main Menu</a></div>
+<a href="${pageContext.request.contextPath}/student/viewbook">View Books</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="${pageContext.request.contextPath}/student">Main Menu</a></div>
 
 </body>
 </html>
