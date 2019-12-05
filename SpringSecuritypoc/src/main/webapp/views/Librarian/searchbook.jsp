@@ -17,7 +17,7 @@
 	<option value="subject">Search By Subject</option>
 	</select>&nbsp;&nbsp;
 	<input type="text" name="searchvalue" required="required" />
-	
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	<button>Search</button>
 
 </form>
@@ -40,13 +40,14 @@
 	<td>${book.bookname}</td>
 	<td>${book.subject}</td>
 	<td>${book.copies}</td>
+	<td><a href="${pageContext.request.contextPath}/library/viewuser?bookid=${book.bookid}">Allotted Student List</a></td>
 	</tr>
 	</c:forEach>
 </table>
 <br>
 <div align="center" >
-<a href="${pageContext.request.contextPath}/addbook">Add Book</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="${pageContext.request.contextPath}/">Main Menu</a></div>
+<a href="${pageContext.request.contextPath}/library/addbook">Add Book</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="${pageContext.request.contextPath}/library">Main Menu</a></div>
 
 </body>
 </html>

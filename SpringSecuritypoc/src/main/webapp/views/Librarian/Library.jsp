@@ -12,11 +12,11 @@
 <div style="text-align:center">
 <h1>Main Menu</h1>
 <hr>
-<h2><a href="${pageContext.request.contextPath}/book">ListBooks</a></h2>
+<h2><a href="${pageContext.request.contextPath}/library/viewbook">ListBooks</a></h2>
 <br>
-<h2><a href="${pageContext.request.contextPath}/delete">Delete Book</a></h2>
+<h2><a href="${pageContext.request.contextPath}/library/delete">Delete Book</a></h2>
 <br>
-<h2><a href="${pageContext.request.contextPath}/searchbook">Search Book</a></h2>
+<h2><a href="${pageContext.request.contextPath}/library/searchbook">Search Book</a></h2>
 <br>
  <a href="<c:url value="/logout" />">Logout</a>
 </div>

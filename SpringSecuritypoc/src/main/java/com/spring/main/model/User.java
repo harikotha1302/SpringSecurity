@@ -34,7 +34,21 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
     private List<Role> roles;
 	
+	@ManyToMany(mappedBy="user")
+	private List<Book> book;
 	
+	public List<Book> getBook() {
+		return book;
+	}
+
+
+
+	public void setBook(List<Book> book) {
+		this.book = book;
+	}
+
+
+
 	public User() {
 		super();
 	}
@@ -53,12 +67,13 @@ public class User {
 
 
 
-	public User(long userid, String username, String password, List<Role> roles) {
+	public User(long userid, String username, String password, List<Role> roles,List<Book> book) {
 		super();
 		this.userid = userid;
 		this.username = username;
 		this.password = password;
 		this.roles = roles;
+		this.book=book;
 	}
 
 

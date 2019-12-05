@@ -33,13 +33,13 @@
 				<td>${bks.bookname}</td>
 				<td>${bks.subject}</td>
 				<td>${bks.copies}</td>
-				<td><a href="${pageContext.request.contextPath}/deletebook?bookid=${bks.bookid}">Delete</a></td>
+				<td><a href="${pageContext.request.contextPath}/library/deletebook?bookid=${bks.bookid}">Delete</a></td>
 			</tr>
 	</c:forEach>
 </table>
 <br>
-<a href="${contextPath}addbook">ADD BOOK</a>&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="${contextPath}/">MAIN MENU</a>
+<a href="${contextPath}/library/addbook">ADD BOOK</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="${contextPath}/library">MAIN MENU</a>
 
 </body>
 </html>

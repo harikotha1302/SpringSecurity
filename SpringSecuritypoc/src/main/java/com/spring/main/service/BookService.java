@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 
 
 import com.spring.main.model.Book;
+import com.spring.main.model.User;
 import com.spring.main.repositories.BookRepo;
+import com.spring.main.repositories.UserRepo;
 
 @Service
 public class BookService {
 
 	@Autowired
 	private BookRepo br;
+	
+	@Autowired
+	private UserRepo ur;
 	
 	List<Book> ls=new ArrayList<Book>();
 	
@@ -39,6 +44,15 @@ public class BookService {
 		ls=br.findBySubject(subject);
 		return ls;
 		
+	}
+	
+	public List<User> bookByuser(Long id)
+	{
+		ls.clear();
+		Optional<Book> book=br.findById(id);
+		List<User> lu=new ArrayList<>();
+		lu=book.get().getUser();
+		return lu;
 	}
 	
 	public Long save(Book b)
